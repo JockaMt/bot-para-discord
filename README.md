@@ -1,114 +1,84 @@
-# 🤖 Bot para Discord
+# 🚀 Bot para Discord
 
-Um bot para Discord desenvolvido em **Node.js** com **discord.js v14**, que utiliza Slash Commands e carregamento automático de comandos por pastas.
-
----
-
-## ✨ Funcionalidades
-
-- Suporte a **Slash Commands** (`/comando`)
-- Carregamento automático de comandos organizados em subpastas
-- Registro de comandos por servidor ao entrar em novos guilds
-- Fácil extensão: basta adicionar novos arquivos `.js` na pasta `commands`
+Um bot simples para Discord, construído com Node.js e a biblioteca `discord.js`. Este projeto serve como estrutura de base com um manipulador (handler) de comandos (Slash Commands) pronto para ser estendido.
 
 ---
 
-## 📋 Pré-requisitos
+## 📸 Preview
 
-- [Node.js](https://nodejs.org/) v16.9.0 ou superior
-- Uma conta de desenvolvedor no [Discord Developer Portal](https://discord.com/developers/applications)
-- Um bot criado no Discord Developer Portal com as permissões necessárias
+*(Adicione imagens ou GIFs do seu bot em funcionamento aqui)*
 
 ---
 
-## 🚀 Instalação
+## 🧠 Funcionalidades
 
-1. **Clone o repositório:**
+* ✔️ Estrutura organizada com Command Handler
+* ✔️ Suporte a Slash Commands nativo do Discord
+* ✔️ Comando utilitário (`/ping`) de exemplo incluído
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+* [Node.js](https://nodejs.org/)
+* [Discord.js (v14.11)](https://discord.js.org/)
+* [Dotenv](https://www.npmjs.com/package/dotenv)
+
+---
+
+## ⚙️ Como rodar o projeto
 
 ```bash
+# Clonar o repositório
 git clone https://github.com/JockaMt/bot-para-discord.git
+
+# Entrar na pasta do projeto
 cd bot-para-discord
-```
 
-2. **Instale as dependências:**
-
-```bash
+# Instalar as dependências
 npm install
-```
 
-3. **Configure as variáveis de ambiente:**
+# Configurar as variáveis de ambiente
+# Crie um arquivo .env na raiz do projeto e adicione a seguinte linha:
+# TOKEN=seu_token_aqui
 
-Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
-
-```env
-TOKEN=seu_token_do_bot_aqui
-```
-
-4. **Inicie o bot:**
-
-```bash
+# Rodar o bot
 node index.js
 ```
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Estrutura de pastas (opcional)
 
-```
-bot-para-discord/
-├── commands/
-│   └── Utils/
-│       └── ping.js        # Comando de ping
-├── handler/
-│   └── index.js           # Carregador automático de comandos
-├── .env                   # Variáveis de ambiente (não versionado)
-├── .gitignore
-├── index.js               # Ponto de entrada do bot
-├── package.json
-└── README.md
+```text
+/
+├── index.js          # Arquivo principal que inicializa o bot
+├── package.json      # Configurações do projeto e dependências
+├── /handler          # Lógica para registrar comandos slash
+└── /commands         
+    └── /Utils        # Categoria de comandos utilitários
+        └── ping.js   # Arquivo com a lógica do comando /ping
 ```
 
 ---
 
-## 🧩 Comandos Disponíveis
+## 🎯 Objetivo do projeto
 
-| Comando | Categoria | Descrição                    |
-|---------|-----------|------------------------------|
-| `/ping` | Utils     | Exibe o ping atual do bot    |
+Criar uma base testada e escalável para desenvolvimento de bots versáteis no Discord, focando em:
 
----
-
-## ➕ Adicionando Novos Comandos
-
-1. Crie uma subpasta em `commands/` com o nome da categoria (ex: `commands/Moderação/`).
-2. Dentro dela, crie um arquivo `.js` seguindo o modelo abaixo:
-
-```js
-const Discord = require("discord.js");
-
-module.exports = {
-  name: "nome-do-comando",
-  description: "Descrição do comando",
-  type: Discord.ApplicationCommandType.ChatInput,
-
-  run: async (client, interaction) => {
-    interaction.reply({ content: "Resposta do comando!" });
-  },
-};
-```
-
-3. Reinicie o bot — o handler carregará o novo comando automaticamente.
+* Estudo prático da API do Discord (`v14`).
+* Criação de um esqueleto fácil de expandir e criar novos comandos.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 💡 Melhorias futuras
 
-- [Node.js](https://nodejs.org/)
-- [discord.js v14](https://discord.js.org/)
-- [dotenv](https://github.com/motdotla/dotenv)
+* [ ] Adicionar evento `interactionCreate` de forma modularizada
+* [ ] Conectar banco de dados (MongoDB, PostgreSQL) para dados de usuários
+* [ ] Implementar sistema de logs avançado 
 
 ---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença **ISC**.
+Este projeto está sob a licença ISC.
